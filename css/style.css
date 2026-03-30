@@ -4,7 +4,7 @@ html, body {
 
 body {
     width: 100%;
-    padding-top: 70px;
+    padding-top: 95px;
 }
 
 /* =========================
@@ -771,8 +771,8 @@ h3 {
     font-family: 'Lexend', sans-serif;   /* make sure */
     font-size: 16px;
 
-    font-weight: 250;                    /* 👈 thinner but not too light */
-    font-variation-settings: "wght" 250; /* 👈 force variable weight */
+    font-weight:350;                    /* 👈 thinner but not too light */
+    font-variation-settings: "wght" 350; /* 👈 force variable weight */
 
     cursor: pointer;
     transition: all 0.3s ease;
@@ -1057,6 +1057,7 @@ h3 {
     /* GLOBAL FIX */
     body {
         overflow-x: hidden;
+        padding-top: 80px; 
     }
 
     /* ================= HEADER ================= */
@@ -1484,12 +1485,10 @@ h3 {
 
     /* ================= FOOTER ================= */
 
+
     .footer-container {
         grid-template-columns: 1fr;
-        gap: 0px;
-        padding: 60px 20px;
-        text-align: left;
-        margin-bottom: 0px;
+        gap: 40px;
     }
 
 }
