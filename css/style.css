@@ -1,0 +1,1574 @@
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    padding-top: 70px;
+}
+
+/* =========================
+   Custom Fonts (REQUIRED)
+========================= */
+
+/* Fraunces – Headings */
+@font-face {
+    font-family: 'Fraunces';
+    src: url('../assets/fonts/fraunces/Fraunces-VariableFont_wght.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: optional;
+}
+
+@font-face {
+    font-family: 'Fraunces';
+    src: url('../assets/fonts/fraunces/Fraunces-Italic-VariableFont_wght.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: optional;
+}
+
+/* Lexend – Body & UI */
+@font-face {
+    font-family: 'Lexend';
+    src: url('../assets/fonts/lexend/Lexend-VariableFont_wght.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: optional;
+}
+
+/* =========================
+   Reset
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   Typography System
+========================= */
+body {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 350;
+    color: #000;
+}
+
+strong {
+    font-weight: 600;
+}
+
+h1, h2, h3 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 60;
+}
+
+/* Fine-tuned weights */
+h1 {
+    font-weight: 460;
+}
+
+h2 {
+    font-weight: 430;
+}
+
+h3 {
+    font-weight: 400;
+}
+
+/* =========================
+   Header
+========================= */
+.site-header {
+    background-color: rgba(255, 255, 255, 0.75); /* ⬅ subtle transparency */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    min-height: 80px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px); /* Safari */
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 40px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+}
+
+.logo img {
+    height: 46px;
+    display: block;
+}
+
+/* Navigation */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 44px;
+    transform: translateY(6px);
+}
+
+.main-nav a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #111;
+}
+
+/* Social icons */
+.social-links {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.social-links img {
+    width: 20px !important;
+    height: 20px !important;
+    max-width: 20px !important;
+    object-fit: contain;
+
+    opacity: 0.65;
+    transform: translateY(3px);
+}
+
+.social-links img:hover {
+    opacity: 1;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* =========================
+   Hero Section
+========================= */
+.hero {
+    position: relative;
+    height: 75vh;
+    background-image: url('../assets/images/hero.jpg');
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.hero-content {
+    position: relative;
+    max-width: 820px;
+    text-align: center;
+    color: #ffffff;
+    padding: 20px;
+}
+
+/* Main headline */
+.hero h1 {
+    font-size: 44px;
+    line-height: 1.25;
+    font-weight: 350;
+    margin-bottom: 80px;
+    position: relative;
+    top: -30px;
+    opacity: 0;
+    transform: translateY(18px)
+}
+
+/* Subtitle block (THIS IS THE FIXED PART) */
+.hero-sub {
+    font-family: 'Lexend', sans-serif;
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 28px 0;
+    color: #ffffff;
+    opacity: 0;
+    transform: translateY(18px)
+}
+
+.hero-sub span {
+    display: block;
+}
+
+/* Space below "Welcome to" */
+.hero-sub .welcome-line {
+    margin-top: -60px;  /* try -4px to -12px */
+    margin-bottom: 12px;
+}
+
+/* Slight pull-up for second line */
+.hero-sub .tight-line {
+    margin-top: -4px;
+    margin-bottom: 90px;
+}
+
+/* CTA Button */
+.hero-button {
+    display: inline-block;
+    padding: 16px 42px;
+    background-color: #29b6f6;
+    color: #000000;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0;
+    transform: translateY(18px)
+}
+
+/* Animated State */
+.hero.loaded h1 {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 
+        opacity 1.2s ease-out,
+        transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero.loaded .hero-sub {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 1.2s ease-out,
+        transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: 0.25s;
+}
+
+.hero.loaded .hero-button {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 1.2s ease-out,
+        transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: 0.45s;
+}
+
+/* =========================
+   What is Vocabee Section
+========================= */
+.why-vocabee {
+    background-color: #ffffff;
+    padding: 120px 40px;
+}
+
+.why-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* Left text column */
+.why-text h2 {
+    font-size: 36px;
+    font-family: 'Fraunces', serif;
+
+    font-weight: 200;   /* ← go lighter than 350 */
+    font-variation-settings:
+        "wght" 200,
+        "opsz" 60;      /* ← critical for lightness */
+    margin-top: 24px;
+    margin-bottom: 32px;
+    color: #111;
+}
+
+.why-text p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #4a4a4a;
+    font-variation-settings: "wght" 300;
+    margin-bottom: 26px;
+}
+
+.why-text p strong {
+    font-variation-settings: "wght" 500;
+    font-weight: 500;
+    color: #000;
+}
+
+
+/* Right icon column */
+.why-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.why-icon img {
+    max-width: 260px;
+    width: 100%;
+    height: auto;
+}
+
+/* =========================
+   Who is Vocabee for? (FINAL)
+========================= */
+.who-vocabee {
+    background-color: #ffffff;
+    padding: 140px 40px 60px;
+}
+
+.who-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Heading */
+.who-container h2 {
+    font-size: 36px;
+    font-weight: 200;
+    text-align: left;
+    margin-left: auto;
+    margin-right: 120px;
+    margin-bottom: 24px;
+    margin-top: 0;
+    max-width: 520px;
+    font-variation-settings: 
+        "wght" 200,
+        "opsz" 60;
+}
+
+
+/* Intro paragraph (intentionally offset) */
+.who-intro {
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: 120px;
+    margin-bottom: 160px;
+    font-size: 16px;
+    line-height: 1.9;
+    color: #4a4a4a;
+    font-variation-settings: "wght" 300;
+    margin-bottom: 150px;
+}
+
+/* Row base */
+.who-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-bottom: 180px;
+    position: relative;
+}
+
+/* Image */
+.who-image {
+    display: flex;
+}
+
+.who-image img {
+    width: 100%;
+    max-width: 620px;   /* ← image size control */
+    margin-left: -120px;   /* ← move left */
+    display: block;
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity 1.4s ease-out,
+        transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.who-row.show .who-image img {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.row-early .who-image img {
+    position: relative;
+    top: 10px;
+    left: 60px;
+}
+
+.row-explorer .who-image img {
+    position: relative;
+    top: -180px;
+    left: -10px;
+}
+
+.row-scholar .who-image img {
+    position: relative;
+    top: -475px;
+    left: 60px;
+}
+
+/* Yellow card base */
+.who-card {
+    background-color: #ffeb50;
+    width: 650px;      /* ← width control */
+    padding: 160px 80px; /* ← height control */
+    top: -670px;  /* move up */
+    left: -40px;  /* move up */
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.2s ease;
+}
+
+.who-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.row-early .who-card {
+    position: relative;
+    top: -658px;      /* move up */
+    right: -250px;   /* horizontal overlap control */
+    left: 20px;   /* horizontal overlap control */
+    transition-delay: 0.1s;
+}
+
+.row-explorer .who-card {
+    position: relative;
+    top: -600px;       /* move down */
+    left: -30px;    /* overlap for reverse row */
+    transition-delay: 0.2s;
+}
+
+.row-scholar .who-card {
+    position: relative;
+    top: -1145px;
+    right: -120px;
+    left: 20px;
+    transition-delay: 0.3s;
+}
+
+
+/* ---------- NORMAL ROW (Card LEFT, Image RIGHT) ---------- */
+.who-row:not(.reverse) .who-card {
+    grid-column: 1;
+    justify-self: end;
+    margin-right: -75px;   /* overlap into image */
+}
+
+.who-row:not(.reverse) .who-image {
+    grid-column: 2;
+}
+
+/* ---------- REVERSE ROW (Image LEFT, Card RIGHT) ---------- */
+.who-row.reverse .who-image {
+    grid-column: 1;
+    transform: translate(180px, -280px);
+    }
+
+.who-row.reverse .who-card {
+    grid-column: 2;
+    justify-self: start;
+    margin-left: -80px;    /* overlap into image */
+}
+
+.who-row.show .who-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Typography inside card */
+.who-card h3 {
+    font-size: 36px;
+    font-weight: 200;
+    margin-bottom: 10px;
+    margin-top: -80px;
+    font-variation-settings: 
+        "wght" 200,
+        "opsz" 60;
+}
+
+   
+.who-card .age {
+    font-family: 'Fraunces', serif;
+    display: block;
+    font-size: 36px;
+    font-weight: 200;
+    margin-bottom: 60px;
+    color: #222;
+    font-variation-settings: 
+        "wght" 200,
+        "opsz" 60;
+    
+}
+
+.who-card p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #4a4a4a;
+    max-width: 420px;
+    margin-top: 40px;
+    font-variation-settings: "wght" 300;
+       
+}
+
+/* =========================
+   Language Studio Section
+========================= */
+
+.language-studio {
+    background-color: #ffffff;
+    padding: 160px 40px;
+    margin-top: -1000px;  /* ← adjust this number visually */
+}
+
+.studio-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    align-items: start;
+    position: relative;
+    left: 20px;   /* fine tuning */
+}
+
+/* Left column */
+.studio-left h2 {
+    font-size: 36px;
+    font-weight: 200;
+    font-variation-settings: 
+        "wght" 200,
+        "opsz" 60;
+
+    line-height: 1.3;
+    margin-bottom: 34px;
+    margin-left: 24px;
+    margin-right: 120px;
+    margin-top: -200px;
+}
+
+.studio-left p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #4a4a4a;
+    font-variation-settings: "wght" 300;
+    margin-bottom: 40px;
+    margin-left: 24px;
+    margin-right: 120px;
+    margin-top: 20px;
+}
+
+.studio-icon {
+    width: 250px;
+    display: block;
+    margin-bottom: 50px;
+    margin-top: 200px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: 240px;
+}
+
+/* Right column (yellow box) */
+.studio-right {
+    background-color: #ffbe1e;
+    width: 580px;
+    height: 580px;   /* ← makes it square */
+    padding: 80px;
+    position: relative;
+    justify-self: start;
+    margin-left: -75px;   /* same overlap logic */
+    margin-top: 50px;
+}
+
+.studio-right ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.studio-right li {
+    line-height: 1.9;
+    font-variation-settings: "wght" 150;
+    font-size: 22px;
+    line-height: 1.6;
+    margin-bottom: 32px;
+    position: relative;
+    padding-left: 36px;
+}
+
+/* star bullet */
+.studio-right li::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 24px;
+}
+/* =========================
+   Belief Banner
+========================= */
+
+.belief-banner {
+    padding: 90px 30px;
+    background-color: #ffffff;
+    margin-top: -60px;
+}
+
+.belief-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.belief-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.belief-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.belief-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.05);
+    padding: 40px;
+    text-align: center;
+}
+
+.belief-overlay h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 42px;
+    font-weight: 200;
+    font-variation-settings: 
+        "wght" 220,
+        "opsz" 60;
+
+    color: #ffffff;
+    line-height: 1.4;
+    max-width: 900px;
+}
+/* =========================
+   Contact Section
+========================= */
+
+.contact-section {
+    padding: 140px 40px;
+    background: #ffffff;
+    scroll-margin-top: 80px;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+
+}
+
+/* Left Side */
+
+.contact-info h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 240;
+    color: #111;
+    margin-bottom: 40px;
+    font-variation-settings: "wght" 240, "opsz" 60;
+}
+
+.contact-info p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #111;
+
+    font-weight: 250;
+    font-variation-settings: "wght" 250;
+
+    margin-bottom: 50px;
+    max-width: 420px;
+}
+
+.contact-details strong {
+    display: block;
+    font-weight: 500; /* darker title */
+    color: #111;
+    margin-bottom: 6px;
+}
+
+.contact-details span {
+    display: block;
+    margin-bottom: 30px;
+
+    font-family: 'Lexend', sans-serif;
+    font-weight: 250; /* thin */
+    font-variation-settings: "wght" 250;
+
+    color: #444; /* softer than title */
+}
+
+/* Right Side Form */
+
+.contact-form {
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    flex: 1;
+}
+
+.form-group label {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 400;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 18px 18px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: transparent;
+    border-radius: 0;
+}
+
+/* Elegant focus effect */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #2e7d32;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.08);
+}
+
+/* Submit Button */
+.contact-button {
+    margin-top: 10px;
+    padding: 24px 46px;
+    background-color: #29b6f6;
+    color: #000;
+    border: none;
+
+    font-family: 'Lexend', sans-serif;   /* make sure */
+    font-size: 16px;
+
+    font-weight: 250;                    /* 👈 thinner but not too light */
+    font-variation-settings: "wght" 250; /* 👈 force variable weight */
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+.contact-button:hover {
+    background-color: #1fa4d8;
+}
+
+.contact-form-wrapper {
+    position: relative;
+}
+
+/* overlay */
+.thank-you-card {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease;
+}
+
+/* active */
+.thank-you-card.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* CARD DESIGN (this is the main part) */
+.thank-you-content {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+
+    padding: 60px 70px;
+    width: 80%;
+    max-width: 420px;
+
+    text-align: center;
+
+    /* ✨ soft premium shadow */
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+}
+
+/* heading */
+.thank-you-content h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 30px;
+    margin-bottom: 15px;
+    color: #111;
+    white-space: nowrap;
+    font-size: 24px; /* slightly smaller so it fits nicely */
+}
+
+/* text */
+.thank-you-content p {
+    font-family: 'Lexend', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+}
+/* =========================
+   Footer
+========================= */
+
+.site-footer {
+    padding: 10px 0 120px;
+}
+
+/* Grey box centered */
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f4f4f4;
+
+    padding: 120px 100px;
+
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 120px;
+}
+
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 120px;
+}
+
+/* Logo */
+.footer-logo {
+    width: 50px;
+    margin-bottom: 30px;
+}
+
+/* Studio Title */
+.footer-brand h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 200;
+    font-variation-settings: "wght" 200;
+    margin-bottom: 30px;
+}
+
+/* Address */
+.footer-address {
+    font-family: 'Lexend', sans-serif;
+    font-size: 15px;
+    line-height: 1.9;
+    font-weight: 300;
+    font-variation-settings: "wght" 300;
+    color: #4a4a4a;
+}
+
+/* Column Titles */
+.footer-col h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 200;
+    font-variation-settings: "wght" 200;
+    margin-bottom: 30px;
+}
+
+/* Links */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col li {
+    margin-bottom: 18px;
+}
+
+.footer-col a {
+    font-family: 'Lexend', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    font-variation-settings: "wght" 300;
+    color: #111;
+    text-decoration: none;
+}
+
+.footer-col a:hover {
+    opacity: 0.6;
+}
+
+/* =========================
+   NAV DROPDOWN – Elegant
+========================= */
+
+.main-nav {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.main-nav a {
+    font-family: 'Lexend', sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    color: #000;
+}
+
+/* Dropdown wrapper */
+.dropdown {
+    position: relative;   
+}
+
+/* invisible hover bridge */
+.dropdown::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 15px;   /* hover buffer */
+}
+
+/* Dropdown box */
+.dropdown-content {
+    position: absolute;
+    top: 100%;  /* attaches directly below */
+    left: 0;
+
+    background: #ffffff;
+    min-width: 320px;
+    padding: 25px 0;
+
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    border-radius: 4px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+
+    transition: 
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+
+    z-index: 999;
+}
+
+/* Dropdown links */
+.dropdown-content a {
+    display: block;
+    padding: 14px 30px;
+    font-size: 14px;
+    line-height: 1.6;
+    transition: background 0.3s ease;
+}
+
+.dropdown-content a span {
+    display: block;
+    font-size: 12px;
+    color: #777;
+    margin-top: 4px;
+}
+
+/* Hover effect */
+.dropdown-content a:hover {
+    background: #f4f4f4;
+}
+
+/* SHOW DROPDOWN */
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 16px 30px;
+    position: relative;
+    text-decoration: none;
+    color: #000;
+}
+
+/* Divider line 
+.dropdown-content a:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 30px;
+    right: 70px;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.08);
+}*/
+
+/* =========================
+   MOBILE MASTER FIX (CLEAN RESET)
+========================= */
+.mobile-nav {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+.menu-socials {
+    display: none;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    /* GLOBAL FIX */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* ================= HEADER ================= */
+    .header-container {
+        grid-template-columns: 1fr auto;
+        padding: 22px 20px;
+    }
+
+    .main-nav,
+    .social-links {
+        display: none;
+    }
+
+    .logo img {
+        height: 34px;
+    }
+
+    
+    /* ================= HERO ================= */
+    .hero {
+        height: auto;
+        padding: 80px 20px;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 26px;
+        line-height: 1.3;
+        margin-bottom: 20px;
+
+        top: 0;              /* 🔥 reset */
+        transform: none;     /* 🔥 reset */
+    }
+
+    .hero-sub {
+        font-size: 16px;
+        margin: 10px 0 20px;
+    }
+
+    .hero-sub .welcome-line {
+        margin: 0;          /* 🔥 remove negative margin */
+    }
+
+    .hero-sub .tight-line {
+        margin: 0 0 20px;   /* 🔥 clean spacing */
+    }
+
+    .hero-button {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+
+    /* ================= WHY ================= */
+    .why-vocabee {
+        padding: 60px 20px 40px;   /* 🔥 reduced top gap */
+    }
+
+    .why-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .why-icon img {
+        max-width: 220px;   /* 🔥 smaller */
+    }
+
+}
+
+/* HIDE ON DESKTOP */
+@media (max-width: 768px) {
+
+    .mobile-nav {
+        position: absolute;
+        top: 40px;
+        right: 20px;
+        z-index: 2000;
+        display: block;
+    }
+        
+    /* 🍔 */
+    .hamburger {
+        width: 26px;
+        height: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        height: 2px;
+        background: #000;
+        border-radius: 2px;
+    }
+
+    /* 🌫️ BIG FROSTED PANEL */
+    .mobile-menu {
+        position: fixed;
+        top: -24px;
+        right: -20px;
+        left: auto;              /* 🔥 keep it anchored right */
+
+        width: 70vw;             /* 🔥 your desired width */
+        max-width: none;
+        height: 100vh;
+
+        padding: 100px 30px 40px;
+
+        background: rgba(255, 255, 255, 0.88);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+
+        border-left: 1px solid rgba(0,0,0,0.05);
+        box-shadow: -8px 0 30px rgba(0,0,0,0.12);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        transform: translateX(calc(100% + 20px));
+        transition: transform 0.35s ease;
+    }
+
+    .mobile-menu.active {
+        transform: translateX(0);
+    }
+
+    /* 📋 LINKS */
+    .menu-links {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+       
+    }
+
+    .menu-links a {
+        text-decoration: none !important;
+        color: #444;
+
+        font-size: 18px;
+        font-weight: 400;
+
+        letter-spacing: 0.3px;
+    }
+
+    .menu-links a:hover {
+        color: #000;
+    }
+
+    .menu-links a strong {
+        display: block;
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    .menu-links span {
+        display: block;
+        margin-top: 4px;
+
+        font-size: 14px;
+        color: #666;
+        font-weight: 400;
+    }
+
+    /* 🔗 SOCIALS (NOW INSIDE PANEL) */
+    .menu-socials {
+        margin-top: 18px;
+        display: flex;
+        gap: 12px;
+
+        font-size: 14px;
+        letter-spacing: 2px;
+        color: #555;
+    }
+
+    /* 🔥 CONTROL ICON SIZE */
+    .menu-socials img {
+        width: 18px;     /* 👈 adjust between 16–22 */
+        height: 18px;
+        object-fit: contain;
+    }
+
+    /* OPTIONAL — nice circular background */
+    .menu-socials a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 34px;
+        height: 34px;
+
+    }
+
+    .menu-links,
+    .menu-socials {
+        width: 80vw;
+        max-width: 360px;
+    }
+
+}
+
+/* ================= WHO SECTION (CLEAN FIX) ================= */
+
+@media (max-width: 768px) {
+
+    .who-vocabee {
+        padding: 40px 20px;
+    }
+
+    .who-container {
+        max-width: 700px;     /* control width */
+        margin: 0 auto;       /* 🔥 THIS centers the whole block */
+        text-align: center;
+    }
+
+    .who-container h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+
+        text-align: center;
+        width: 100%;              /* 🔥 ensures full width */
+        display: block;           /* 🔥 avoids inline quirks */
+    }
+
+    .who-intro {
+        font-size: 16px;
+        max-width: 600px;
+
+        margin: 0 auto 60px auto;   /* 🔥 THIS restores spacing */
+    }
+
+    .who-row,
+    .who-row.reverse,
+    .who-image,
+    .row-early .who-image,
+    .row-explorer .who-image,
+    .row-scholar .who-image {
+        position: static !important;
+        transform: none !important;
+    }
+
+    .who-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;            /* clean spacing */
+        margin-bottom:0px;
+    }
+
+    .who-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0;
+    }
+
+    .who-image img {
+        width: 90%;
+        max-width: 400px;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .who-card {
+        width: 90%;
+        max-width: 400px;
+        padding: 20px;
+        background: #ffeb50;
+
+        margin: 0;            /* 🔥 IMPORTANT */
+        position: static !important;
+    }
+
+    .who-card h3 {
+        font-size: 22px;
+        margin: 0 0 6px 0;
+    }
+
+    .who-card .age {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .who-card p {
+        font-size: 14px;
+        line-height: 1.6;
+        margin: 0 auto;;
+    }
+    
+
+}
+
+
+    /* ================= LANGUAGE STUDIO ================= */
+@media (max-width: 768px) {
+
+    .language-studio {
+        margin-top: 0;   /* 🔥 FIX BIG GAP */
+        padding: 20px 20px;
+        padding-top: 16px;
+    }
+
+    .studio-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        left: 0;
+    }
+
+    /* CENTER ONLY LEFT CONTENT */
+    .studio-left {
+        text-align: center;
+    }
+
+    /* TITLE */
+    .studio-left h2 {
+        margin-bottom: 16px;
+        margin: 0 auto 30px auto;   /* 🔥 center + spacing */
+    }
+
+    /* PARAGRAPH */
+    .studio-left p {
+        max-width: 520px;
+        margin: 0 auto 30px auto;   /* 🔥 center + spacing */
+    }
+
+    .studio-icon {
+        margin: 40px auto;
+    }
+
+    .studio-right {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 40px 20px;
+    }
+
+  
+    .studio-right li::before {
+        content: "✦";
+
+        font-size: 24px;          /* 🔥 EXACT same as desktop */
+        flex-shrink: 0;
+
+        margin-top: -5px;          /* 🔥 alignment tweak */
+    }
+
+    .studio-right li span,
+    .studio-right li img {
+        flex-shrink: 0;
+        margin-top: 4px;
+    }
+}
+/* ================= BELIEF ================= */
+
+@media (max-width: 768px) {
+
+    .belief-banner {
+        position: relative;
+    }
+
+    .belief-image {
+        position: relative;
+        height: 350px;
+    }
+
+    .belief-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
+
+    /* 🔥 TEXT FIX */
+    .belief-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 85%;
+        max-width: 320px;
+
+        text-align: center;
+    }
+
+    .belief-overlay h2 {
+        color: #fff;
+        font-size: 20px;        /* 👈 adjust between 20–26 */
+        line-height: 1.4;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    /* 🔥 OVERLAY FOR READABILITY */
+    .belief-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.25);
+    }
+
+}
+    /* ================= CONTACT ================= */
+@media (max-width: 768px) {
+
+    .contact-section {
+        margin-top: 0;
+        padding: 20px 20px;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    /* ================= FOOTER ================= */
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 0px;
+        padding: 60px 20px;
+        text-align: left;
+        margin-bottom: 0px;
+    }
+
+}
+
+/* ===== WHO SECTION – TEMP STABILIZE ===== */
+
+@media (max-width: 768px) {
+
+    .who-row,
+    .who-row.reverse {
+        display: block !important;
+        margin-bottom: 40px !important;
+    }
+
+    .who-image,
+    .who-image img {
+        position: static !important;
+        transform: none !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+    }
+
+    .who-image {
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .who-image img {
+        width: 90% !important;
+        max-width: 400px !important;
+        margin: 0 auto !important;
+        display: block !important;
+    }
+
+    /* 🚫 TEMP: hide cards completely */
+    .who-card {
+        width: 90%;
+        max-width: 400px;
+        margin: -40px auto 0 auto !important;  /* 👈 overlap + center */
+        padding: 24px 20px;
+        background: #ffeb50;
+
+        margin-top: -30px;   /* reduce overlap */
+        margin-bottom: 40px; /* 🔥 creates space before next section */
+    
+
+        position: relative;
+        z-index: 2;
+
+        box-sizing: border-box;
+
+        left: 0 !important;          /* 🔥 kills drift */
+        right: 0 !important;         /* 🔥 kills drift */
+        align-self: center;   /* 🔥 this is the real fix */
+ 
+    }   
+
+    .who-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center !important;   /* 🔥 FORCE CENTER */
+    }
+
+            
+    .row-early .who-card,
+    .row-scholar .who-card,
+    .row-explorer .who-card {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .studio-right li {
+        font-size: 20px !important;   /* 👈 change this freely */
+        line-height: 1.5;
+    }
+
+}
+    

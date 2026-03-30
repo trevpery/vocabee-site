@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vocabee Journal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog.css">
+</head>
+
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vocabee Language Studio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/vocabee_logo.png" alt="Vocabee Language Studio">
+                </a>
+            </div>
+
+            <nav class="main-nav">
+
+                <a href="index.html">Home</a>
+                <a href="about.html">About us</a>
+
+                <!-- Courses Dropdown -->
+                <div class="dropdown">
+                    <a href="vocabee-sprouts2.html" class="dropbtn">Courses</a>
+
+                    <div class="dropdown-content">
+                        <a href="vocabee-sprouts2.html">
+                            Vocabee Sprouts<br>
+                            <span>Junior KG (Age 4–5 Years)</span>
+                        </a>
+
+                        <a href="vocabee-sprouts.html">
+                            Vocabee Sprouts<br>
+                            <span>Senior KG (Age 5–6 Years)</span>
+                        </a>
+
+                        <a href="vocabee-explorer1.html">
+                            Vocabee Explorer<br>
+                            <span>Grade 1 (Age 6–7 Years)</span>
+                        </a>
+
+                        <a href="vocabee-explorer2.html">
+                            Vocabee Explorer<br>
+                            <span>Grade 2 (Age 7–8 Years)</span>
+                        </a>
+
+                        <a href="vocabee-explorer3.html">
+                            Vocabee Explorer<br>
+                            <span>Grade 3 (Age 8–9 Years)</span>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="blog.html">Blog</a>
+                <a href="index.html#contact-section">Contact us</a>
+
+            </nav>
+
+
+            <div class="social-links">
+                <a href="#" aria-label="Instagram">
+                    <img src="assets/images/instagram.png" alt="Instagram">
+                </a>
+                <a href="#" aria-label="Facebook">
+                    <img src="assets/images/facebook.png" alt="Facebook">
+                </a>
+            </div>
+
+        </div>
+
+        <div class="mobile-nav">
+
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="mobile-menu" id="mobileMenu">
+
+                <div class="menu-links">
+                    <a href="about.html">About</a>
+                    <a href="vocabee-sprouts2.html">Courses</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="index.html#contact-section">Contact us</a>
+                </div>
+
+                <div class="menu-socials">
+                    <a href="#" aria-label="Instagram">
+                        <img src="assets/images/instagram.png" alt="Instagram">
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                        <img src="assets/images/facebook.png" alt="Facebook">
+                    </a>
+                </div>
+
+            </div>
+        </div>    
+    </header>
+
+<section class="blog-list-page">
+
+    <div class="blog-container">
+
+        <h1 class="blog-list-title">Journal</h1>
+
+        <div class="blog-list-grid">
+
+            <a href="blog-1.html" class="blog-list-card">
+                <div class="blog-list-image">
+                    <img src="assets/images/blog1.jpg" alt="">
+                </div>
+                <h3>Raising Readers in an Age of Distraction</h3>
+            </a>
+
+            
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="footer-container">
+
+        <!-- Left Column -->
+        <div class="footer-col footer-brand">
+            <img src="assets/images/vocabee_icon.png" alt="Vocabee Icon" class="footer-logo">
+
+            <h3>Vocabee Language Studio</h3>
+
+            <p class="footer-address">
+                Thane, Maharashtra.<br>
+                
+            </p>
+        </div>
+
+        <!-- Middle Column -->
+        <div class="footer-col">
+            <h4>Info</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Facebook</a></li>
+            </ul>
+        </div>
+
+        <!-- Right Column -->
+        <div class="footer-col">
+            <h4>Courses</h4>
+            <ul>
+                <li><a href="vocabee-sprouts2.html">Vocabee Sprouts</a></li>
+                <li><a href="vocabee-explorer1.html">Vocabee Explorers</a></li>
+            </ul>
+        </div>
+
+    </div>
+</footer>
+<script>
+function toggleMenu() {
+    document.getElementById("mobileMenu").classList.toggle("active");
+}
+
+// 🔥 close on outside click
+    document.addEventListener("click", function(e) {
+        const menu = document.getElementById("mobileMenu");
+        const hamburger = document.querySelector(".hamburger");
+
+        if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+            menu.classList.remove("active");
+        }
+    });
+</script>
+</body>
+</html>
