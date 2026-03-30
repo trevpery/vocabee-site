@@ -1616,4 +1616,14 @@ h3 {
         top: 320px;
         right: 38px;
     }
+
+    /* When footer is visible, shift popup down */
+    .site-footer:hover ~ .social-popup,
+    .site-footer:active ~ .social-popup {
+        top: auto;
+        bottom: 183px;   /* adjust this */
+        right: 18px;
+    }
+
 }
+
