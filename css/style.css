@@ -1621,8 +1621,8 @@ h3 {
     .site-footer:hover ~ .social-popup,
     .site-footer:active ~ .social-popup {
         top: auto;
-        bottom: 183px;   /* adjust this */
-        right: 18px;
+        bottom: 350px;   /* adjust this */
+        right: 0px;
     }
 
 }
