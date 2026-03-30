@@ -1570,4 +1570,50 @@ h3 {
     }
 
 }
-    
+
+.social-popup {
+    position: fixed;
+    top: 80px;
+    right: 600px;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+
+    z-index: 9999;
+}
+
+.social-popup.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.social-popup-content {
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(10px);
+
+    padding: 18px 22px;
+    width: 220px;
+
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+
+.social-popup-content h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.social-popup-content p {
+    font-size: 13px;
+    color: #444;
+}
+
+@media (max-width: 768px) {
+    .social-popup {
+        top: 320px;
+        right: 38px;
+    }
+}
