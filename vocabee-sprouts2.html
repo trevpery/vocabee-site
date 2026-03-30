@@ -69,10 +69,11 @@
 
 
             <div class="social-links">
-                <a href="#" aria-label="Instagram">
+                <a href="#" class="social-trigger" aria-label="Instagram">
                     <img src="assets/images/instagram.png" alt="Instagram">
                 </a>
-                <a href="#" aria-label="Facebook">
+
+                <a href="#" class="social-trigger" aria-label="Facebook">
                     <img src="assets/images/facebook.png" alt="Facebook">
                 </a>
             </div>
@@ -97,10 +98,11 @@
                 </div>
 
                 <div class="menu-socials">
-                    <a href="#" aria-label="Instagram">
+                    <a href="#" class="social-trigger" aria-label="Instagram">
                         <img src="assets/images/instagram.png" alt="Instagram">
                     </a>
-                    <a href="#" aria-label="Facebook">
+
+                    <a href="#" class="social-trigger" aria-label="Facebook">
                         <img src="assets/images/facebook.png" alt="Facebook">
                     </a>
                 </div>
@@ -494,5 +496,31 @@ function showThankYouCard() {
     }
 }
 </script>
+
+<script>
+document.querySelectorAll('.social-trigger').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const popup = document.getElementById("socialPopup");
+
+        if (popup) {
+            popup.classList.add("active");
+
+            setTimeout(() => {
+                popup.classList.remove("active");
+            }, 3000);
+        }
+    });
+});
+</script>
+
+<div id="socialPopup" class="social-popup">
+    <div class="social-popup-content">
+        <h4>Coming Soon</h4>
+        <p>We’re building our social presence.</p>
+    </div>
+</div>
+
 </body>
 </html>
